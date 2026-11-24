@@ -1,0 +1,3 @@
+# Invalid TOML, to test the "Cannot load configuration" error.
+
+this is = not [valid toml

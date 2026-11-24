@@ -1,0 +1,239 @@
+# Test configuration: 25 simulated devices, 18 OBUs and 7 RSUs (no SSH needed).
+# The clock offsets of obu12 and rsu6 are above the clock skew warning threshold.
+# obu5, rsu2 and rsu3 capture two streams each, and rsu4 four.
+
+default_duration = 30
+
+[[devices]]
+name = "obu1"
+model = "mock"
+role = "obu"
+
+[devices.options]
+packet_rate_hz = 10.0
+step_delay_ms = 100
+
+[[devices]]
+name = "obu2"
+model = "mock"
+role = "obu"
+
+[devices.options]
+packet_rate_hz = 12.0
+clock_offset_ms = 80
+step_delay_ms = 250
+
+[[devices]]
+name = "obu3"
+model = "mock"
+role = "obu"
+
+[devices.options]
+packet_rate_hz = 14.0
+step_delay_ms = 150
+
+[[devices]]
+name = "obu4"
+model = "mock"
+role = "obu"
+
+[devices.options]
+packet_rate_hz = 11.0
+clock_offset_ms = 400
+step_delay_ms = 300
+
+[[devices]]
+name = "obu5"
+model = "mock"
+role = "obu"
+
+[devices.options]
+packet_rate_hz = 18.0
+streams = 2
+
+[[devices]]
+name = "obu6"
+model = "mock"
+role = "obu"
+
+[devices.options]
+packet_rate_hz = 15.0
+clock_offset_ms = -600
+step_delay_ms = 50
+
+[[devices]]
+name = "obu7"
+model = "mock"
+role = "obu"
+
+[devices.options]
+packet_rate_hz = 10.0
+step_delay_ms = 250
+
+[[devices]]
+name = "obu8"
+model = "mock"
+role = "obu"
+
+[devices.options]
+packet_rate_hz = 12.0
+clock_offset_ms = -250
+step_delay_ms = 150
+
+[[devices]]
+name = "obu9"
+model = "mock"
+role = "obu"
+
+[devices.options]
+packet_rate_hz = 14.0
+step_delay_ms = 400
+
+[[devices]]
+name = "obu10"
+model = "mock"
+role = "obu"
+
+[devices.options]
+packet_rate_hz = 11.0
+clock_offset_ms = 700
+
+[[devices]]
+name = "obu11"
+model = "mock"
+role = "obu"
+
+[devices.options]
+packet_rate_hz = 13.0
+step_delay_ms = 100
+
+[[devices]]
+name = "obu12"
+model = "mock"
+role = "obu"
+
+[devices.options]
+packet_rate_hz = 15.0
+clock_offset_ms = 3500
+step_delay_ms = 250
+
+[[devices]]
+name = "obu13"
+model = "mock"
+role = "obu"
+
+[devices.options]
+packet_rate_hz = 20.0
+step_delay_ms = 150
+
+[[devices]]
+name = "obu14"
+model = "mock"
+role = "obu"
+
+[devices.options]
+packet_rate_hz = 10.0
+step_delay_ms = 300
+
+[[devices]]
+name = "obu15"
+model = "mock"
+role = "obu"
+
+[devices.options]
+packet_rate_hz = 12.0
+
+[[devices]]
+name = "obu16"
+model = "mock"
+role = "obu"
+
+[devices.options]
+packet_rate_hz = 14.0
+clock_offset_ms = 150
+step_delay_ms = 100
+
+[[devices]]
+name = "obu17"
+model = "mock"
+role = "obu"
+
+[devices.options]
+packet_rate_hz = 25.0
+step_delay_ms = 250
+
+[[devices]]
+name = "obu18"
+model = "mock"
+role = "obu"
+
+[devices.options]
+packet_rate_hz = 11.0
+step_delay_ms = 150
+
+[[devices]]
+name = "rsu1"
+model = "mock"
+role = "rsu"
+
+[devices.options]
+packet_rate_hz = 5.0
+step_delay_ms = 300
+
+[[devices]]
+name = "rsu2"
+model = "mock"
+role = "rsu"
+
+[devices.options]
+packet_rate_hz = 10.0
+streams = 2
+clock_offset_ms = 300
+
+[[devices]]
+name = "rsu3"
+model = "mock"
+role = "rsu"
+
+[devices.options]
+packet_rate_hz = 15.0
+streams = 2
+step_delay_ms = 50
+
+[[devices]]
+name = "rsu4"
+model = "mock"
+role = "rsu"
+
+[devices.options]
+packet_rate_hz = 20.0
+streams = 4
+step_delay_ms = 150
+
+[[devices]]
+name = "rsu5"
+model = "mock"
+role = "rsu"
+
+[devices.options]
+packet_rate_hz = 15.0
+clock_offset_ms = -120
+step_delay_ms = 250
+
+[[devices]]
+name = "rsu6"
+model = "mock"
+role = "rsu"
+
+[devices.options]
+packet_rate_hz = 10.0
+clock_offset_ms = -4200
+step_delay_ms = 500
+
+[[devices]]
+name = "rsu7"
+model = "mock"
+role = "rsu"
+
+[devices.options]
+packet_rate_hz = 5.0

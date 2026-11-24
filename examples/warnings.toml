@@ -1,0 +1,52 @@
+# Test configuration: every entry below has a problem, to show the "Configuration warnings" message.
+
+default_duration = 10
+theme = "dark"                  # unknown setting
+
+[[devices]]
+name = "obu1"
+model = "mock"
+role = "obu"
+username = "demo"
+color = "blue"                  # unknown key
+
+[[devices]]
+name = "obu1"                   # duplicate name
+model = "mock"
+
+[[devices]]
+name = "rsu 2"                  # invalid name
+model = "mock"
+
+[[devices]]
+name = "rsu3"
+model = "no-such-driver"        # unknown model
+
+[[devices]]
+name = "obu4"
+model = "cohda-mk6"
+role = "car"                    # invalid role
+host = "10.0.0.4:22"            # port in the host
+port = 70000                    # out of range
+
+[[devices]]
+name = "obu5"
+model = "cohda-mk6"             # missing host
+
+[[devices]]
+name = "obu6"
+model = "generic-linux"
+host = "10.0.0.6"
+username = "pi"
+[devices.options]               # missing interface
+filter = 42                     # not a string
+promiscuous = "yes"             # not true or false
+
+[[devices]]
+name = "rsu7"
+model = "mock"
+role = "rsu"
+[devices.options]
+streams = 20                    # out of range
+fail_phase = "sometime"         # not a phase
+turbo = true                    # unknown option

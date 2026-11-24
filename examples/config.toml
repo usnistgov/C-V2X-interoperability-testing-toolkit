@@ -1,0 +1,57 @@
+# cv2x-tester configuration example.
+
+# Global settings must come before [[devices]].
+output_dir = "results"            # absolute, or relative to the current directory; leading ~ expanded
+default_duration = 60             # seconds; how long tests run, unless overridden in the GUI or with --duration
+clock_skew_warning = 2.0          # seconds; warn if a device clock is off by more than this; 0 = disabled
+connect_timeout = 15              # seconds; TCP + SSH handshake + authentication
+command_timeout = 30              # seconds; any single remote command
+stop_timeout = 60                 # seconds; reconnecting if needed and stopping the test
+collect_timeout = 300             # seconds; downloading the files from the device
+keep_raw_files = false            # also keep the unmodified files downloaded from the device
+delete_remote_files = true        # delete capture files on the device after download
+
+[[devices]]
+name = "obu1"                     # must be unique; may contain only letters, digits, '.', '_' and '-'
+model = "cohda-mk6"               # device model; run "cv2x-tester models" to list the supported models
+role = "obu"                      # "obu" or "rsu"
+host = "fe80::6e5:48ff:fe50:c78%eth0"  # hostname, IPv4 or IPv6 address (with zone id if link-local)
+# port = 22                       # SSH port (default)
+username = "user"                 # SSH login
+password = "user"                 # SSH password
+
+[[devices]]
+name = "rsu1"
+model = "cohda-mk6"
+role = "rsu"
+host = "fe80::6e5:48ff:fe30:710%eth0"
+username = "user"
+password = "user"
+keep_raw_files = true             # per-device override
+
+[devices.options]
+# check_gps = false               # skip the GPS pre-check (kinematics-sample-client)
+
+[[devices]]
+name = "obu4"
+model = "commsignia"
+role = "obu"
+host = "192.168.0.74"
+username = "root"
+password = "change-me"
+enabled = false                   # skip this device in runs
+
+[devices.options]
+# interface = "lo"                # capture interface on the device (default)
+# filter = "port 7943"            # tcpdump capture filter (default)
+# promiscuous = false             # put the interface in promiscuous mode (default: off)
+# check_gps = false               # skip the GPS pre-check (kinematics-sample-client)
+
+[[devices]]
+name = "rsu4"
+model = "commsignia"
+role = "rsu"
+host = "192.168.0.64"
+username = "root"
+key_file = "~/.ssh/id_ed25519"    # SSH private key; absolute, or relative to this file's folder; leading ~ expanded
+# key_passphrase = "..."          # only needed if the key is encrypted

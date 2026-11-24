@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="12" fill="#1f5fa8"/>
+  <!-- magnifier: handle cut off by the rounded corner, then the lens -->
+  <path d="M47.03 40.67L63.05 56.68A12 12 0 0 1 56.68 63.05L40.67 47.03z" fill="#fff"/>
+  <circle cx="29" cy="29" r="21" fill="#e3eefa" stroke="#fff" stroke-width="5.8"/>
+  <!-- signal waves above the roof -->
+  <g fill="none" stroke="#f08c00" stroke-width="2.7" stroke-linecap="round">
+    <path d="M25.32 24.27a5.25 5.25 0 0 1 7.35 0"/>
+    <path d="M21.96 20.91a9.97 9.97 0 0 1 14.07 0"/>
+  </g>
+  <!-- car, side view -->
+  <g transform="translate(12.2 15.35) scale(0.525)">
+    <path fill="#1f5fa8" d="M7 46v-3.5q0-4.5 4.5-5.5l7-1.5 5-7q1.2-1.5 3-1.5h11q1.8 0 3 1.4l6 7.1 6 1q4.5.8 4.5 5v4.5q0 2-2 2H9q-2 0-2-2z"/>
+    <g fill="#e3eefa">
+      <path d="M21.5 35.5l3.8-5.2q.5-.8 1.5-.8h4.2v6z"/>
+      <path d="M33 29.5h4.6q1 0 1.6.7l4.5 5.3H33z"/>
+    </g>
+    <g fill="#1f5fa8" stroke="#e3eefa" stroke-width="2.5">
+      <circle cx="18.5" cy="47.5" r="6"/>
+      <circle cx="45.5" cy="47.5" r="6"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,75 @@
+[project]
+name = "cv2x-tester"
+version = "0.1.0"
+description = "Run synchronized tests on C-V2X OBUs/RSUs over SSH and collect pcap traces"
+readme = "README.md"
+authors = [
+    { name = "Davide Pesavento", email = "davide.pesavento@nist.gov" }
+]
+license = "NIST-Software"
+license-files = ["LICENSE"]
+requires-python = ">=3.15"
+dependencies = [
+    "asyncssh>=2.24.1",
+    "pyside6>=6.12.0",
+    "qasync>=0.28.0",
+    "scapy>=2.8.0",
+    "tomli-w>=1.2.0",
+]
+
+[project.scripts]
+cv2x-tester = "cv2x_tester.cli:main"
+
+[build-system]
+requires = ["uv_build>=0.13.0,<0.14.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "mypy>=2.4.0",
+    "pytest>=9.1.1",
+    "pytest-asyncio>=1.4.0",
+    "ruff>=0.17.0",
+]
+
+[tool.mypy]
+files = ["src", "tests"]
+python_version = "3.15"
+check_untyped_defs = true
+disallow_incomplete_defs = true
+disallow_untyped_decorators = true
+warn_return_any = true
+warn_unreachable = true
+warn_unused_ignores = true
+
+[[tool.mypy.overrides]]
+module = ["qasync"]
+ignore_missing_imports = true  # qasync ships no type information
+
+[tool.pyside6-project]
+# For `pyside6-project build`, which generates the QML types of @QmlElement classes.
+files = ["src/cv2x_tester/__main__.py", "src/cv2x_tester/gui/controller.py"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+strict = true
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+
+[tool.ruff]
+line-length = 110
+target-version = "py315"
+
+[tool.ruff.lint]
+extend-select = [
+    "ASYNC", "B", "CPY001", "DTZ", "E", "I", "ISC", "LOG",
+    "PGH", "PLE", "PLW", "PT", "RUF", "SIM", "UP", "W",
+]
+# Timeout parameters are part of the SSH and driver API.
+ignore = ["ASYNC109"]
+
+[tool.ruff.lint.flake8-bugbear]
+extend-immutable-calls = ["cv2x_tester.options.option"]
+
+[tool.ruff.lint.flake8-copyright]
+notice-rgx = '(?m)\A(#.*\n)*# SPDX-License-Identifier: NIST-Software$'

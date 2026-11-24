@@ -1,0 +1,21 @@
+# Test configuration: slow simulated devices (no SSH needed).
+# Every operation takes several seconds, which leaves time to press Stop, Cancel or
+# Ctrl+C in a given phase.
+
+default_duration = 15
+
+[[devices]]
+name = "slow-obu"
+model = "mock"
+role = "obu"
+
+[devices.options]
+step_delay_ms = 3000
+
+[[devices]]
+name = "very-slow-rsu"
+model = "mock"
+role = "rsu"
+
+[devices.options]
+step_delay_ms = 8000
